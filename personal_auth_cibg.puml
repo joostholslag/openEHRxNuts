@@ -1,0 +1,35 @@
+@startuml
+object "CIBG" as cibg
+object "Org 1" as o2
+object "Person 1" as p1
+
+object "Membership VP" as vp
+object "UZI credential" as uzi_vc
+object "UZI vp" as uzi_vp
+object "Login credential" as login_vc
+
+o2 : ura : 3213123
+
+
+uzi_vc : issuer = CIBG
+uzi_vc : subject = Person 1
+uzi_vc : uzi = 1334234
+
+login_vc : uzi_vp = UZI vp
+login_vc : org_vp = Membership VP
+
+
+o2 ... vp: includes
+
+cibg ... uzi_vc: issues
+p1 ... uzi_vc: owns
+p1 ... uzi_vp: presents
+
+o2 ... login_vc: issues
+p1 ... login_vc: owns
+
+o2 ... uzi_vp: requires
+uzi_vc ... uzi_vp : linked
+login_vc --o uzi_vp
+login_vc --o vp
+@enduml

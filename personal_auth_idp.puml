@@ -1,0 +1,25 @@
+@startuml
+object "Person 1" as p1
+object "Identity Provider" as idp
+object "id_token" as id_token
+object "Org 1" as o2
+
+object "Membership VP" as org_vp
+object "Login credential" as login_vc
+
+login_vc : id_token : id_token
+login_vc : org_vp : org_vp
+
+idp ... p1 : authenticates
+idp ... id_token: issues
+
+o2 ... org_vp: presents
+
+o2 ... login_vc: issues
+login_vc --o "id_token"
+login_vc --o "org_vp"
+
+p1 ... login_vc: owns
+idp ... o2: federates
+
+@enduml
