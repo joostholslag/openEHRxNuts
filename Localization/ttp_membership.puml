@@ -1,0 +1,28 @@
+@startuml
+object "CIBG" as cibg
+object "Trusted Third Party" as ttp
+object "URA VC" as ura_vc
+object "**Membership VC**" as vc
+object "Org 1" as o2
+
+
+
+o2 : ura : 3213123
+
+vc : issuer = TTP
+vc : subject : Org 1
+vc : ura : 3213123
+vc : capabilities : ['openEHR']
+vc : profiles : ['ACP']
+
+ura_vc : issuer = TTP
+ura_vc : subject : CIBG
+ura_vc : ura : 3213123
+
+cibg ... ura_vc : issues
+ttp -[#red,dashed,thickness=2]-> vc: issues
+o2 ... vc: owns
+o2 ... ura_vc: owns
+vc ... ura_vc : linked
+
+@enduml

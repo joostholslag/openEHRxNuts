@@ -1,0 +1,21 @@
+@startuml
+object "Trusted Third Party" as ttp
+object "Shared registry" as registry
+object "Org 1" as org_1
+object "Org 2" as org_2
+object "Membership VC 1*" as vc_1
+object "Membership VC 2*" as vc_2
+
+vc_1 : capabilities : ["openEHR"]
+vc_1 : profiles : ["ACP"]
+
+vc_2 : capabilities : ["openEHR"]
+vc_2 : profiles : ["ACP", "MDO"]
+
+ttp -[#red,dashed,thickness=2]-> registry: selects
+org_1 ... vc_1: has
+org_2 ... vc_2: has
+vc_1 --> registry: vp
+vc_2 --> registry: vp
+org_1 -[#green,thickness=2]-> registry: query
+@enduml

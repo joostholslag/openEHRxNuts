@@ -1,0 +1,37 @@
+{"input_descriptors": [
+      {
+        "id": "OpenEhrOrgCredential",
+        "constraints": {
+          "fields": [
+            {
+              "path": [
+                "$.type"
+              ],
+              "filter": {
+                "type": "string",
+                "const": "OpenEhrOrgCredential"
+              }
+            },
+            {
+              "path": [
+                "$.credentialSubject.capabilities"
+              ],
+              "filter": {
+                "type": "string",
+                "enum" : ["openEHR"]
+              }
+            },
+            {
+              "path": [
+                "$.credentialSubject.profiles"
+              ],
+              "filter": {
+                "type": "string",
+                "enum" : ["ACP"]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
