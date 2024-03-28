@@ -2,7 +2,7 @@
 
 ## Localization of network members
 ### Membership
-The principle behind creating a network of trusted members is selecting a Trusted Third Party that acts as gatekeeper to allow members on the network. Alongside, these memberships reflect the capabilities, such as `openEHR` and profiles, such as `ACP`.
+The principle behind creating a network of trusted members is selecting a Trusted Third Party (TTP) that acts as gatekeeper to allow members on the network. Alongside, these memberships reflect the capabilities, such as `openEHR` and profiles, such as `ACP`.
 
 Preferably, those memberships are founded by a trusted publicly issued attribute such as an URA number from CIBG.
 
