@@ -1,0 +1,13 @@
+@startuml
+object "User" as usr
+object "Hash" as hash
+object "Register" as reg
+
+usr : bsn : bsn
+usr : transfer_code : transfer_code
+usr : salt : salt
+
+usr ... hash: generates
+hash --> reg: registers
+
+@enduml
