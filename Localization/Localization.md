@@ -30,12 +30,10 @@ Finding where data op patients in the network resides is a complex challenge. On
 The main principle is that a user that is published on the network gets a `transfer code` or `sharing code` that unlocks the discoverability of the person on the network. The main principle works like this:
 
 ```javascript
- published_hash = hash(salt + social_security_number + transfer_code)
+ published_hash = hash(social_security_number + transfer_code)
 ```
 
-The `published_hash` and `salt` is shared in the public registers. Only systems that have access to the `transfer code`, `bsn`, and `salt` are able to calculate the published_hash and query for the user. Systems or users that intercept the `published_hash` and `salt` can't link this to actual personal data.
-
-The `salt` is added to the hash in order to prevent a fairly simple rainbow table attack on BSN.
+The `published_hash` is shared in the public registers. Only systems that have access to the `transfer code` and `bsn` are able to calculate the published_hash and query for the user. Systems or users that intercept the `published_hash` can't link this to actual personal data.
 
 ![transfer_code.png](transfer_code.png)
 
@@ -43,7 +41,7 @@ The `salt` is added to the hash in order to prevent a fairly simple rainbow tabl
 
 With the basic concept in place, the localization service registers the following `patient data entries`:
 
-- The values `published_hash` and `salt`.
+- The value `published_hash`.
 - Related profile, such as `ACP`.
 - The identification of the data owner, probably the did:web.
 

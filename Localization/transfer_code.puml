@@ -5,7 +5,6 @@ object "Register" as reg
 
 usr : bsn : bsn
 usr : transfer_code : transfer_code
-usr : salt : salt
 
 usr ... hash: generates
 hash --> reg: registers
