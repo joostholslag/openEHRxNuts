@@ -7,7 +7,6 @@ het template-id is ACP-DUTCH
 
 
 # archteypes and compositions
-<<<<<<< Updated upstream
 lijst van te autoriseren archetypes en compositions bij ACP:
 Composition = care_plan.v0 en template-id is ACP-DUTCH
 
@@ -23,9 +22,7 @@ openEHR-EHR-EVALUATION.care_preference_uk.v0
 
 
 
-=======
 lijst van te autoriseren archetypes en compositions bij ACP
 
 # queries
 these are the relevant queries
->>>>>>> Stashed changes
