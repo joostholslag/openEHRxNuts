@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/joostholslag/openEHRxNuts/blob/OPA/REGO-ACCESS-CONTROL/Authorisation/access_policy.rego.jsonschema.json",
   "type": "object",
   "properties": {
     "READ": {
