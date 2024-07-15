@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "READ": {
+        "resource": {
+            "template": {
+                "ids": ["composition.acp", "composition.report"]
+            }
+        },
+        "user_roles": [
+            "doctor",
+            "nurse"
+        ]
+    },
+    "WRITE": {
+        "resource": {
+            "template": {
+                "ids": ["composition.acp"]
+            }
+        },
+        "user_roles": [
+            "doctor"
+        ]
+    }
+}

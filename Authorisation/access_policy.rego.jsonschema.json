@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "READ": {
+      "type": "object",
+      "properties": {
+        "resource": {
+          "type": "object",
+          "properties": {
+            "template": {
+              "type": "object",
+              "properties": {
+                "ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "ids"
+              ]
+            }
+          },
+          "required": [
+            "template"
+          ]
+        },
+        "user_roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "resource",
+        "user_roles"
+      ]
+    },
+    "WRITE": {
+      "type": "object",
+      "properties": {
+        "resource": {
+          "type": "object",
+          "properties": {
+            "template": {
+              "type": "object",
+              "properties": {
+                "ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "ids"
+              ]
+            }
+          },
+          "required": [
+            "template"
+          ]
+        },
+        "user_roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "resource",
+        "user_roles"
+      ]
+    },
+    "SEARCH": {
+      "type": "object",
+      "properties": {
+        "resource": {
+          "type": "object",
+          "properties": {
+            "template": {
+              "type": "object",
+              "properties": {
+                "ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "ids"
+              ]
+            }
+          },
+          "required": [
+            "template"
+          ]
+        },
+        "user_roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "resource",
+        "user_roles"
+      ]
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "READ"
+      ]
+    },
+    {
+      "required": [
+        "WRITE"
+      ]
+    },
+    {
+      "required": [
+        "SEARCH"
+      ]
+    }
+  ],
+  "additionalProperties": false
+}
