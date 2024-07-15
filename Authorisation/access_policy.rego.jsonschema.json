@@ -1,6 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/joostholslag/openEHRxNuts/blob/OPA/REGO-ACCESS-CONTROL/Authorisation/access_policy.rego.jsonschema.json",
+  "title": "Schema for openEHR Access Policy usable in Rego",
+  "description": "This schema is used to validate json instances for specific access policies. The access policies define rules for accessing dat in openEHR CDRs. The instances are interpreted by a policy defined in Rego. This schema validates wether the instance conforms to the data format expected by the policy in rego/OPA. It can be used by other interpretors, but this is unsupported by the containing project.",
   "type": "object",
   "properties": {
     "READ": {
