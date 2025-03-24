@@ -48,7 +48,7 @@ test_non_acp_template_id_negative if {
 	rules.allow != true with input as testinput
 }
 
-test_read_report_doctor_positive if {
+test_doctor_report_read_positive if {
 	testinput = {
 		"user_role": "doctor",
 		"resource": {"template": {"id": "composition.report"}},
@@ -57,7 +57,7 @@ test_read_report_doctor_positive if {
 	rules.allow == true with input as testinput
 }
 
-test_create_report_doctor_negative if {
+test_doctors_report_create_negative if {
 	testinput = {
 		"user_role": "doctor",
 		"resource": {"template": {"id": "composition.report"}},
