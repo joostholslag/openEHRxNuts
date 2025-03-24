@@ -42,44 +42,7 @@
         "user_roles"
       ]
     },
-    "WRITE": {
-      "type": "object",
-      "properties": {
-        "resource": {
-          "type": "object",
-          "properties": {
-            "template": {
-              "type": "object",
-              "properties": {
-                "ids": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "ids"
-              ]
-            }
-          },
-          "required": [
-            "template"
-          ]
-        },
-        "user_roles": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "resource",
-        "user_roles"
-      ]
-    },
-    "SEARCH": {
+    "CREATE": {
       "type": "object",
       "properties": {
         "resource": {
@@ -117,7 +80,7 @@
       ]
     }
   },
-  "anyOf": [
+  "allOf": [
     {
       "required": [
         "READ"
@@ -125,12 +88,7 @@
     },
     {
       "required": [
-        "WRITE"
-      ]
-    },
-    {
-      "required": [
-        "SEARCH"
+        "CREATE"
       ]
     }
   ],

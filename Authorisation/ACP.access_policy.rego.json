@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/joostholslag/openEHRxNuts/refs/heads/main/Authorisation/access_policy.rego.schema.json",
-    "GET": {
+    "READ": {
         "resource": {
             "template": {
                 "ids": ["composition.acp", "composition.report"]
@@ -11,7 +11,7 @@
             "nurse"
         ]
     },
-    "POST": {
+    "CREATE": {
         "resource": {
             "template": {
                 "ids": ["composition.acp"]
