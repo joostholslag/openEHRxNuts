@@ -7,7 +7,7 @@ test_nurse_read_positive if {
 	testinput = {
 		"user_role": "nurse",
 		"resource": {"template": {"id": "composition.acp"}},
-		"operation": "GET",
+		"operation": "READ",
 	}
 	rules.allow == true with input as testinput
 }
@@ -16,52 +16,52 @@ test_doctor_read_positive if {
 	testinput = {
 		"user_role": "doctor",
 		"resource": {"template": {"id": "composition.acp"}},
-		"operation": "GET",
+		"operation": "READ",
 	}
 	rules.allow == true with input as testinput
 }
 
-test_nurse_post_negatife if {
+test_nurse_create_negatife if {
 	testinput = {
 		"user_role": "nurse",
 		"resource": {"template": {"id": "composition.acp"}},
-		"operation": "POST",
+		"operation": "CREATE",
 	}
 	rules.allow != true with input as testinput
 }
 
-test_doctor_write_positive if {
+test_doctor_create_positive if {
 	testinput = {
 		"user_role": "doctor",
 		"resource": {"template": {"id": "composition.acp"}},
-		"operation": "POST",
+		"operation": "CREATE",
 	}
 	rules.allow == true with input as testinput
 }
 
-test_non_ACP_template_id_negatife if {
+test_non_acp_template_id_negative if {
 	testinput = {
 		"user_role": "doctor",
 		"resource": {"template": {"id": "not-composition.acp"}},
-		"operation": "GET",
+		"operation": "READ",
 	}
 	rules.allow != true with input as testinput
 }
 
-test_get_report_doctor_positive if {
+test_read_report_doctor_positive if {
 	testinput = {
 		"user_role": "doctor",
 		"resource": {"template": {"id": "composition.report"}},
-		"operation": "GET",
+		"operation": "READ",
 	}
 	rules.allow == true with input as testinput
 }
 
-test_write_report_doctor_negative if {
+test_create_report_doctor_negative if {
 	testinput = {
 		"user_role": "doctor",
 		"resource": {"template": {"id": "composition.report"}},
-		"operation": "POST",
+		"operation": "CREATE",
 	}
 	rules.allow != true with input as testinput
 }
