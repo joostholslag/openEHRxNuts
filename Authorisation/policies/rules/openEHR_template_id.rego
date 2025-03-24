@@ -2,9 +2,14 @@ package rules
 
 import rego.v1
 
+datasource := data.data.ACP["ACP.access_policy.rego.json"]
+
 default allow := false
 
 allow if {
-  input.resource.template.id in data.data.ACP.ACP[input.operation].resource.ids # #allow read access when resource.template.id == composition.acp
-  input.user_role in data[input.operation].user_roles #allow read access when user role is doctor or nurse
+	# allow read access when template id is composition.acp
+	input.resource.template.id in datasource[input.operation].resource.template.ids
+
+	# allow read access when user role is doctor or nurse
+	input.user_role in datasource[input.operation].user_roles
 }
