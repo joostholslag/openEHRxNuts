@@ -21,7 +21,7 @@ test_doctor_read_positive if {
 	rules.allow == true with input as testinput
 }
 
-test_nurse_create_negatife if {
+test_nurse_create_negative if {
 	testinput = {
 		"user_role": "nurse",
 		"resource": {"template": {"id": "composition.acp"}},

@@ -23,9 +23,6 @@ user_role_allowed if {
 allow if {
 	# allow read access when template id is composition.acp
 	id_allowed
-	print(id_allowed)
 	# allow read access when user role is doctor or nurse
 	user_role_allowed
-	print(user_role_allowed)
 }
-
