@@ -1,5 +1,5 @@
 {
-    "$schema": "https://github.com/joostholslag/openEHRxNuts/blob/OPA-REGO-ACCESS-CONTROL/Authorisation/access_policy.rego.schema.json",
+    "$schema": "https://raw.githubusercontent.com/joostholslag/openEHRxNuts/refs/heads/main/Authorisation/access_policy.rego.schema.json",
     "READ": {
         "resource": {
             "template": {
