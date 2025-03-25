@@ -1,9 +1,0 @@
-{
-    "user_role": "nurse",
-    "resource": {
-        "template": {
-            "id": "composition.acp"
-        }
-    },
-    "operation": "WRITE"
-}
