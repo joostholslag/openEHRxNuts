@@ -1,4 +1,4 @@
-package test
+package openehr_test
 
 import data.rules
 import future.keywords.if
