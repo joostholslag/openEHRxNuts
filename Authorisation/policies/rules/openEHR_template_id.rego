@@ -2,7 +2,7 @@ package rules
 
 import rego.v1
 
-import data.data.ACP["ACP.access_policy.rego.json"] as datasource
+import data.datasources["acp_access_policy_for_rego.json"] as datasource
 
 default allow := false
 
