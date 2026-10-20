@@ -9,7 +9,7 @@
 #     --schemafile Authorisation/access_policy.rego.schema.json \
 #     Authorisation/policies/datasources/acp_access_policy_for_rego.json
 #
-# Deliberately left out for now (see "Open punten" in Authorisation/DESIGN.md):
+# Deliberately left out for now (see "Open punten" in Authorisation/authorisation_design.md):
 # - actions are referenced by major tag, not pinned to a commit SHA; Dependabot
 #   (.github/dependabot.yml) only opens a pull request for a new major. Pin to
 #   a SHA before this goes to production
@@ -35,7 +35,7 @@ jobs:
 
       - uses: open-policy-agent/setup-opa@v2
         with:
-          # Follow the latest 1.x release; see Authorisation/DESIGN.md.
+          # Follow the latest 1.x release; see Authorisation/authorisation_design.md.
           version: 1.x
 
       - name: opa fmt

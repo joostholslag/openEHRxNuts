@@ -5,7 +5,7 @@ based on Nuts verifiable credentials. It addresses
 [upstream issue #11](https://github.com/jorritspee/openEHRxNuts/issues/11). The first
 OPA/Rego draft was contributed in
 [upstream PR #14](https://github.com/jorritspee/openEHRxNuts/pull/14);
-[DESIGN.md](DESIGN.md) (in Dutch) reviews that draft and proposes how to standardise
+[authorisation_design.md](authorisation_design.md) (in Dutch) reviews that draft and proposes how to standardise
 the evaluation input, the resource scope and the policy format.
 
 ## Contents
@@ -17,7 +17,7 @@ the evaluation input, the resource scope and the policy format.
 | [`policies/openehr_tests/openehr_template_test.rego`](policies/openehr_tests/openehr_template_test.rego) | Unit tests for the rule |
 | [`access_policy.rego.schema.json`](access_policy.rego.schema.json) | JSON Schema (draft-07) that the datasource file must conform to |
 | [`docs/`](docs/) | Architecture diagram (draw.io source and PNG) and a screenshot of an early version of the policy |
-| [`DESIGN.md`](DESIGN.md) | Design proposal for issue #11 (in Dutch) |
+| [`authorisation_design.md`](authorisation_design.md) | Design proposal for issue #11 (in Dutch) |
 
 ## Running the checks locally
 
@@ -40,4 +40,4 @@ The same checks run in CI on every push and pull request, see
 
 ![Architecture overview: client, openEHR CDR with Policy Enforcement Point, Policy Decision Point, Policy Information Point and Policy Repository](docs/authorisation_architecture_overview.png)
 
-The diagram source is [`docs/authorisation_architecture_overview.drawio`](docs/authorisation_architecture_overview.drawio) (edit with [draw.io](https://app.diagrams.net)). The question in the diagram, which policy applies to a request, is answered in [DESIGN.md](DESIGN.md), section 7.5. `docs/` also keeps a [screenshot](docs/authorisation_rego_playground_screenshot.jpg) of an early version of the policy in the Rego Playground, for historical reference.
+The diagram source is [`docs/authorisation_architecture_overview.drawio`](docs/authorisation_architecture_overview.drawio) (edit with [draw.io](https://app.diagrams.net)). The question in the diagram, which policy applies to a request, is answered in [authorisation_design.md](authorisation_design.md), section 7.5. `docs/` also keeps a [screenshot](docs/authorisation_rego_playground_screenshot.jpg) of an early version of the policy in the Rego Playground, for historical reference.
