@@ -276,8 +276,8 @@ OPA draait als sidecar in dezelfde pod als de CDR (zoals in PR #12). Beleid komt
 
 ```
 Authorisation/
-  README.md                       uitleg, link naar DESIGN.md en handleiding voor beleidsauteurs
-  DESIGN.md                       dit document
+  README.md                       uitleg, link naar authorisation_design.md en handleiding voor beleidsauteurs
+  authorisation_design.md         dit document
   docs/                           diagrammen (drawio, png), geen binaire bestanden meer in de hoofdmap
   schemas/
     access_evaluation_input.schema.json   bouwsteen A
