@@ -1,5 +1,5 @@
 # Opens a pull request when a new major version of one of the actions used in
-# .github/workflows/authz.yml is released. Minor and patch releases arrive
+# .github/workflows/authorisation-policies.yml is released. Minor and patch releases arrive
 # through the major tags (@v6, @v2) without a pull request.
 #
 # The OPA range (1.x) and the check-jsonschema range (<1) in that workflow are

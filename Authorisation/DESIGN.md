@@ -294,7 +294,7 @@ Authorisation/
     openehr/authz/*_test.rego             tests
   examples/
     requests/*.json                       voorbeeld-evaluatieverzoeken per scenario
-.github/workflows/authz.yml       opa fmt, opa check --strict, opa test, regal lint, schema-validatie
+.github/workflows/authorisation-policies.yml       opa fmt, opa check --strict, opa test, regal lint, schema-validatie
 ```
 
 ## 9. Fasering
@@ -317,5 +317,5 @@ Obligations voor resultaatfiltering, ad-hoc AQL-inspectie, en optioneel archetyp
 - **Relatiecheck vooraf of door de PDP.** Dit ontwerp ondersteunt beide via `verified_by`; het netwerk moet één standaard kiezen.
 - **Template-id-conventie.** SMART on openEHR gebruikt `namespace::naam.vX`; `ACP-DUTCH` heeft dat niet. Voorstel: `nl.openehrxnuts::ACP-DUTCH.v1` als netwerkbrede id, met een alias-tabel voor lokale id's.
 - **AuthZEN-volwassenheid.** De specificatie is in ontwikkeling; de veldnamen uit §4 zijn stabiel, de batch-endpoint minder.
-- **CI-hygiëne vóór productie.** De workflow `.github/workflows/authz.yml` (fase 0) laat drie dingen bewust open, omdat het risico voor dit ontwerpproject verwaarloosbaar is. Ze moeten alsnog geregeld worden zodra het beleid in productie gaat: (1) de GitHub Actions op een commit-SHA pinnen in plaats van de verplaatsbare major-tags `@v6` en `@v2`; Dependabot (`.github/dependabot.yml`) staat al aan en werkt de SHA's dan automatisch bij, nu opent hij alleen een PR bij een nieuwe major; (2) Regal-lint toevoegen, nu nog niet gedaan omdat Regal 0.43 op de huidige policy 12 meldingen geeft (tests niet in een `_test`-pakket, "messy incremental rule", ontbrekende entrypoint-annotatie, en een vals alarm op `import data.datasources` omdat Regal losse JSON-bestanden niet als data inleest) die bij de herstructurering van fase 1 horen; (3) branch protection op `main` zodat een rode check het mergen blokkeert, een repo-instelling die pas gezet kan worden nadat de workflow één keer op `main` heeft gedraaid.
+- **CI-hygiëne vóór productie.** De workflow `.github/workflows/authorisation-policies.yml` (fase 0) laat drie dingen bewust open, omdat het risico voor dit ontwerpproject verwaarloosbaar is. Ze moeten alsnog geregeld worden zodra het beleid in productie gaat: (1) de GitHub Actions op een commit-SHA pinnen in plaats van de verplaatsbare major-tags `@v6` en `@v2`; Dependabot (`.github/dependabot.yml`) staat al aan en werkt de SHA's dan automatisch bij, nu opent hij alleen een PR bij een nieuwe major; (2) Regal-lint toevoegen, nu nog niet gedaan omdat Regal 0.43 op de huidige policy 12 meldingen geeft (tests niet in een `_test`-pakket, "messy incremental rule", ontbrekende entrypoint-annotatie, en een vals alarm op `import data.datasources` omdat Regal losse JSON-bestanden niet als data inleest) die bij de herstructurering van fase 1 horen; (3) branch protection op `main` zodat een rode check het mergen blokkeert, een repo-instelling die pas gezet kan worden nadat de workflow één keer op `main` heeft gedraaid.
 - **Materiaal uit het ORCA-PoC.** De voorbeeldpolicies uit jorritspee's reactie (februari 2025) zijn nog niet gedeeld; die kunnen fase 2 versnellen.
