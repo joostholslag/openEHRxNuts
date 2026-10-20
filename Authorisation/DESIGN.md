@@ -27,7 +27,7 @@ PR #14 (`Authorisation/`) bevat:
 - `policies/datasources/acp_access_policy_for_rego.json`: de ACP-specifieke invulling, met `READ` en `CREATE` als sleutels, elk met template-id's en rollen.
 - `access_policy.rego.schema.json`: JSON Schema (draft-07) dat het datasource-bestand valideert.
 - `policies/openehr_tests/openehr_template_test.rego`: zeven unit tests.
-- Een draw.io-diagram (`docs/architecture_overview.drawio`, PNG-export in `docs/architecture_overview.png`) met PEP, PDP, PIP en Policy Repository, plus de open vraag "hoe beslis ik welke policy ik moet gebruiken" met drie opties.
+- Een draw.io-diagram (`docs/authorisation_architecture_overview.drawio`, PNG-export in `docs/authorisation_architecture_overview.png`) met PEP, PDP, PIP en Policy Repository, plus de open vraag "hoe beslis ik welke policy ik moet gebruiken" met drie opties.
 
 De scheiding logica (Rego) versus data (JSON) versus contract (JSON Schema) is precies wat sidharthramesh en Joost in het issue bespraken. Het concept is in `Open-health-stack` PR #12 al overgenomen in een werkende PEP-gateway (OpenResty plus OPA voor EHRbase), met een platte allowlist van `(user_role, template_id, operation)`.
 
