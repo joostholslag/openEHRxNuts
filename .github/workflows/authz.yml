@@ -10,8 +10,9 @@
 #     Authorisation/policies/datasources/acp_access_policy_for_rego.json
 #
 # Deliberately left out for now (see "Open punten" in Authorisation/DESIGN.md):
-# - actions are referenced by major tag, not pinned to a commit SHA, and there is
-#   no Dependabot config; revisit before this goes to production
+# - actions are referenced by major tag, not pinned to a commit SHA; Dependabot
+#   (.github/dependabot.yml) only opens a pull request for a new major. Pin to
+#   a SHA before this goes to production
 # - no Regal lint yet; the current policy raises 12 findings that belong to the
 #   fase 1 restructuring
 # - no branch protection on main; a red check does not block a merge
