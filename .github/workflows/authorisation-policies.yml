@@ -1,0 +1,60 @@
+# CI for the authorisation policies in Authorisation/ (issue #11, finding 8).
+#
+# Runs the same checks you can run locally from the repository root:
+#
+#   opa fmt --fail --list Authorisation/policies
+#   opa check --strict Authorisation/policies
+#   opa test Authorisation/policies -v
+#   pipx run "check-jsonschema<1" \
+#     --schemafile Authorisation/access_policy.rego.schema.json \
+#     Authorisation/policies/datasources/acp_access_policy_for_rego.json
+#
+# Deliberately left out for now (see "Open punten" in https://github.com/joostholslag-claude/openEHRxNuts/blob/main/Authorisation/authorisation_design.md):
+# - actions are referenced by major tag, not pinned to a commit SHA; Dependabot
+#   (.github/dependabot.yml) only opens a pull request for a new major. Pin to
+#   a SHA before this goes to production
+# - no Regal lint yet; the current policy raises 12 findings that belong to the
+#   fase 1 restructuring
+# - no branch protection on main; a red check does not block a merge
+
+name: Authorisation policies
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  opa:
+    name: opa fmt, check and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: open-policy-agent/setup-opa@v2
+        with:
+          # Follow the latest 1.x release; see https://github.com/joostholslag-claude/openEHRxNuts/blob/main/Authorisation/authorisation_design.md.
+          version: 1.x
+
+      - name: opa fmt
+        run: opa fmt --fail --list Authorisation/policies
+
+      - name: opa check
+        run: opa check --strict Authorisation/policies
+
+      - name: opa test
+        run: opa test Authorisation/policies -v
+
+  schema:
+    name: validate datasource against JSON Schema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: check-jsonschema
+        run: |
+          pipx run "check-jsonschema<1" \
+            --schemafile Authorisation/access_policy.rego.schema.json \
+            Authorisation/policies/datasources/acp_access_policy_for_rego.json
