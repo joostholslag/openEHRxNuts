@@ -1,6 +1,40 @@
-This folder contains an experiment to express access control policy (authorisations) for openEHR data.
-It's an attempt to solve the issue described in https://github.com/jorritspee/openEHRxNuts/issues/11.
+# Authorisation
 
+An experiment to express access control policy (authorisations) for openEHR data,
+based on Nuts verifiable credentials. It addresses
+[upstream issue #11](https://github.com/jorritspee/openEHRxNuts/issues/11). The first
+OPA/Rego draft was contributed in
+[upstream PR #14](https://github.com/jorritspee/openEHRxNuts/pull/14);
+[DESIGN.md](DESIGN.md) (in Dutch) reviews that draft and proposes how to standardise
+the evaluation input, the resource scope and the policy format.
+
+## Contents
+
+| Path | What |
+|---|---|
+| [`policies/rules/openEHR_template_id.rego`](policies/rules/openEHR_template_id.rego) | Generic Rego rule: `allow` is true when both the template id and the user role are allowed for the requested operation |
+| [`policies/datasources/acp_access_policy_for_rego.json`](policies/datasources/acp_access_policy_for_rego.json) | The ACP-specific data the rule reads: allowed template ids and user roles per operation |
+| [`policies/openehr_tests/openehr_template_test.rego`](policies/openehr_tests/openehr_template_test.rego) | Unit tests for the rule |
+| [`access_policy.rego.schema.json`](access_policy.rego.schema.json) | JSON Schema (draft-07) that the datasource file must conform to |
+| [`docs/`](docs/) | Architecture diagram (draw.io source and PNG) and a screenshot of an early version of the policy |
+| [`DESIGN.md`](DESIGN.md) | Design proposal for issue #11 (in Dutch) |
+
+## Running the checks locally
+
+You need the [OPA](https://www.openpolicyagent.org/docs/#running-opa) binary (1.x)
+and [pipx](https://pipx.pypa.io/). Run everything from the repository root:
+
+```sh
+opa fmt --fail --list Authorisation/policies
+opa check --strict Authorisation/policies
+opa test Authorisation/policies -v
+pipx run "check-jsonschema<1" \
+  --schemafile Authorisation/access_policy.rego.schema.json \
+  Authorisation/policies/datasources/acp_access_policy_for_rego.json
+```
+
+The same checks run in CI on every push and pull request, see
+[`.github/workflows/authorisation-policies.yml`](../.github/workflows/authorisation-policies.yml).
 
 ## Architecture
 
